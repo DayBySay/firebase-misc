@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let item = AVPlayerItem(url: URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8")!)
+        let item = AVPlayerItem(url: URL(string: "http://localhost:8080/stream/index.m3u8")!)
         let player = AVPlayer(playerItem: item)
         
         playerView.playerLayer.player = player
