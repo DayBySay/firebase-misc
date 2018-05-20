@@ -41,5 +41,11 @@ ffmpeg_camera_to_udp:
 		-maxrate:v 2.5M \
 		-bufsize:v 5M \
 		-b:a 128K \
-		-pix_fmt yuyv422 \
+		-pix_fmt yuv420p \
 		-f mpegts udp://${IP}:35001?pkt_size=1316
+
+ffmpeg_create_hls:
+	ffmpeg -f avfoundation -framerate 25 -i "default" -f hls stream/index.m3u8
+
+server:
+	php -S localhost:8080
