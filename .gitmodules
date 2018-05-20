@@ -1,0 +1,3 @@
+[submodule "validate-hls"]
+	path = validate-hls
+	url = git@github.com:makandra/validate-hls.git
