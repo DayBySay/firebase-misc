@@ -7,19 +7,44 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var playerView: PlayerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let item = AVPlayerItem(url: URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8")!)
+        let player = AVPlayer(playerItem: item)
+        
+        playerView.playerLayer.player = player
+        player.play()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
+class PlayerView: UIView {
+    var player: AVPlayer? {
+        get {
+            return playerLayer.player
+        }
+        
+        set {
+            playerLayer.player = newValue
+        }
+    }
+    
+    var playerLayer: AVPlayerLayer {
+        return layer as! AVPlayerLayer
+    }
+    
+    override class var layerClass: AnyClass {
+        return AVPlayerLayer.self
+    }
+}
