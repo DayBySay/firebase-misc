@@ -35,3 +35,6 @@ ffmpeg_create_hls:
 
 server:
 	php -S localhost:8080
+
+clean:
+	rm -rf stream/*
