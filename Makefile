@@ -14,7 +14,7 @@ ffmpeg_list_devices:
 ffmpeg_create_hls:
 	ffmpeg -loglevel error \
 		-f avfoundation \
-		-framerate 12 \
+		-framerate 30 \
 		-i "default" \
 		-vcodec libx264 \
 		-r 30 \
